@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+    "target": "http://api.irishrail.ie/realtime/realtime.asmx/getCurrentTrainsXML",
+    "secure": true,
+    "pathRewrite": {"^/api": ""},
+    "changeOrigin": true
+  }
+}

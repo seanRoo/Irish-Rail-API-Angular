@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{selected}}</button>
+      <div id="stationMenu" ngbDropdownMenu aria-labelledby="dropdownBasic1" *ngIf="stations.length > 0">
+        <button (click)="selectedOption(item)" ngbDropdownItem *ngFor="let item of stations">{{item}}</button>
+      </div>
+    </div>
+  </div>
+  </div>
+<button (click)="getAllStations()" class="btn btn-primary">Load Stations</button>
+<button (click)="stopRefreshing()" class="btn btn-danger">Stop Refresh</button>
+<div id="trainData">
+  <div *ngFor="let item of singleStation">{{item}}</div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Destination</th>
+      <th scope="col">Last Location</th>
+      <th scope="col">Origin</th>
+      <th scope="col">Departing At</th>
+      <th scope="col">Time of Termination</th>
+      <th scope="col">Status</th>
+      <th scope="col">Train Type</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of destinations; let i = index">
+      <td [innerHTML] = "destinations[i].innerHTML"></td>
+      <td [innerHTML] = "lastLocations[i].innerHTML"></td>
+      <td [innerHTML] = "origins[i].innerHTML"></td>
+      <td [innerHTML] = "departing[i].innerHTML"></td>
+      <td [innerHTML] = "terminationTimes[i].innerHTML"></td>
+      <td>{{status[i].innerHTML}} minutes late</td>
+      <td [innerHTML] = "trainTypes[i].innerHTML"></td>
+    </tr>
+  </tbody>
+</table>
+
+<style>
+#stationMenu{
+  max-height: 400px;
+  overflow-y: scroll;
+}
+</style>
