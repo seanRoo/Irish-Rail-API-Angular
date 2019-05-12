@@ -8,10 +8,13 @@ const app = express();
 
 app.use(cors());
 
+app.use(express.static(__dirname + '/dist/irish-rail-api-app'));
+
 app.use(bodyParser.json());
-app.get('/', (req, res)=>{
-    res.send("Invalid Endpoint");
-})
+app.get('/*', function(req,res) {
+    
+    res.sendFile(path.join(__dirname+'/dist/irish-rail-api-app/index.html'));
+    });
 
 app.get('/trains/current', (req, res, next)=>{
     request({
