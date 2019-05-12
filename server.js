@@ -16,6 +16,9 @@ app.get('/*', function(req,res) {
     res.sendFile(path.join(__dirname+'/dist/irish-rail-api-app/index.html'));
     });
 
+
+
+    
 app.get('/trains/current', (req, res, next)=>{
     request({
         uri: 'http://api.irishrail.ie/realtime/realtime.asmx/getCurrentTrainsXML'
@@ -32,6 +35,4 @@ app.get('/stations/single/:name', (req, res, nexr)=>{
     }).pipe(res);
 })
 const port = 3000;
-app.listen(port, ()=>{
-    console.log("Server started on port " + port);
-})
+server.listen(process.env.PORT || port);
