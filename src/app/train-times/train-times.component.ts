@@ -109,7 +109,6 @@ export class TrainTimesComponent implements OnInit {
     this.status.push(xmlDoc.getElementsByTagName("Late")[i]);
     this.trainTypes.push(xmlDoc.getElementsByTagName("Traintype")[i]);
     this.departing.push(xmlDoc.getElementsByTagName("Expdepart")[i]);
-    console.log(this.status[i].innerHTML.toString().search(digitSearch));
   }
     })
   }
