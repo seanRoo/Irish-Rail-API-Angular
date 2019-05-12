@@ -35,4 +35,4 @@ app.get('/stations/single/:name', (req, res, nexr)=>{
     }).pipe(res);
 })
 //const port = 3000;
-server.listen(process.env.PORT);
+app.listen(process.env.PORT);
