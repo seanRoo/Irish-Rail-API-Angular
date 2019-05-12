@@ -34,5 +34,5 @@ app.get('/stations/single/:name', (req, res, nexr)=>{
         uri:'http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc='+req.params.name
     }).pipe(res);
 })
-const port = 3000;
-server.listen(process.env.PORT || port);
+//const port = 3000;
+server.listen(process.env.PORT);
